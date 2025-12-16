@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🌗 LIGHT THEME (DEFAULT) */
+/* ☀️ LIGHT THEME (DEFAULT) */
 :root {
-  --bg: #ffffff;
-  --card: #f3f4f6;
+  --bg: #f9fafb;
+  --card: #ffffff;
   --text: #111827;
   --border: #e5e7eb;
 }
@@ -15,23 +15,22 @@
   :root {
     --bg: #0b0f19;
     --card: rgba(255, 255, 255, 0.06);
-    --text: #ffffff;
-    --border: rgba(255, 255, 255, 0.12);
+    --text: #e5e7eb;
+    --border: rgba(255, 255, 255, 0.15);
   }
 }
 
-/* ROOT HEIGHT FIX */
+/* ROOT */
 html,
 body,
 #root {
   height: 100%;
 }
 
-/* GLOBAL STYLES */
 body {
-  font-family: 'Inter', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
   overflow-x: hidden;
 }
