@@ -2,16 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🔑 ROOT HEIGHT FIX */
+/* 🌗 LIGHT THEME (DEFAULT) */
+:root {
+  --bg: #ffffff;
+  --card: #f3f4f6;
+  --text: #111827;
+  --border: #e5e7eb;
+}
+
+/* 🌑 DARK THEME (SYSTEM BASED) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0f19;
+    --card: rgba(255, 255, 255, 0.06);
+    --text: #ffffff;
+    --border: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* ROOT HEIGHT FIX */
 html,
 body,
 #root {
   height: 100%;
 }
 
-/* 🔑 GLOBAL DARK BACKGROUND */
+/* GLOBAL STYLES */
 body {
-  background-color: #0b0f19; /* bg-dark */
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
   margin: 0;
   overflow-x: hidden;
 }

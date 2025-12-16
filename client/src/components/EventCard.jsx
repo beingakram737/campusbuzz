@@ -4,10 +4,15 @@ import { format } from "date-fns";
 const EventCard = ({ event }) => {
   return (
     <div
-      className="group relative rounded-2xl bg-glass p-6 backdrop-blur-glass
-                 border border-white/10 shadow-soft
+      className="group relative mx-auto w-full max-w-md
+                 rounded-2xl p-5 sm:p-6
+                 border shadow-soft
                  transition duration-300
-                 hover:-translate-y-1 hover:shadow-neon hover:border-neon"
+                 hover:-translate-y-1 hover:shadow-neon"
+      style={{
+        backgroundColor: "var(--card)",
+        borderColor: "var(--border)",
+      }}
     >
       {/* Glow */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl
@@ -17,17 +22,17 @@ const EventCard = ({ event }) => {
                         blur-xl" />
       </div>
 
-      <h3 className="mb-3 text-xl font-semibold text-white
+      <h3 className="mb-3 text-lg sm:text-xl font-semibold text-[var(--text)]
                      group-hover:text-neon transition">
         {event.title}
       </h3>
 
-      <div className="mb-2 flex items-center gap-2 text-sm text-gray-300">
+      <div className="mb-2 flex items-center gap-2 text-sm text-gray-400">
         <span>📅</span>
         <span>{format(new Date(event.date), "dd MMM yyyy")}</span>
       </div>
 
-      <div className="mb-4 flex items-center gap-2 text-sm text-gray-300">
+      <div className="mb-4 flex items-center gap-2 text-sm text-gray-400">
         <span>📍</span>
         <span>{event.location}</span>
       </div>
@@ -42,10 +47,7 @@ const EventCard = ({ event }) => {
                    bg-gradient-to-r from-neon to-neonBlue
                    px-5 py-2 text-sm font-semibold text-white
                    transition
-                   hover:shadow-neon hover:scale-105
-                   focus-visible:outline-none
-                   focus-visible:ring-2 focus-visible:ring-neon
-                   focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+                   hover:shadow-neon hover:scale-105"
       >
         View Details
       </Link>
