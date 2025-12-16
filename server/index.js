@@ -18,7 +18,11 @@ const PORT = process.env.PORT || 8000;
 ====================== */
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://campusbuzz.netlify.app",
+      "https://campusbuz.netlify.app"
+    ],
     credentials: true,
   })
 );
