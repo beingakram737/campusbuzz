@@ -2,25 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================================
+   🌗 THEME VARIABLES
+================================ */
+
 /* ☀️ LIGHT THEME (DEFAULT) */
 :root {
-  --bg: #f9fafb;
-  --card: #ffffff;
-  --text: #111827;
-  --border: #e5e7eb;
+  --bg: #f8fafc;              /* page background */
+  --card: #ffffff;            /* cards, navbar */
+  --text: #111827;            /* main text */
+  --muted: #6b7280;           /* secondary text */
+  --border: #e5e7eb;          /* borders */
+  --accent: #6366f1;          /* buttons */
 }
 
-/* 🌑 DARK THEME (SYSTEM BASED) */
+/* 🌑 DARK THEME */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b0f19;
     --card: rgba(255, 255, 255, 0.06);
     --text: #e5e7eb;
+    --muted: #9ca3af;
     --border: rgba(255, 255, 255, 0.15);
+    --accent: #7c7cff;
   }
 }
 
-/* ROOT */
+/* ================================
+   GLOBAL BASE
+================================ */
 html,
 body,
 #root {
@@ -28,9 +38,9 @@ body,
 }
 
 body {
+  margin: 0;
   background-color: var(--bg);
   color: var(--text);
-  margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
 }

@@ -25,21 +25,28 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-[var(--card)] backdrop-blur border-b border-[var(--border)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+      <nav className="sticky top-0 z-50
+                      bg-[var(--card)]
+                      border-b border-[var(--border)]">
+        <div className="mx-auto flex max-w-7xl
+                        items-center justify-between
+                        px-4 py-3 sm:px-6">
 
           {/* LOGO */}
-          <span className="text-xl sm:text-2xl font-bold text-neon whitespace-nowrap">
+          <span className="text-xl sm:text-2xl
+                           font-bold text-[var(--accent)]">
             CampusBuzz
           </span>
 
-          {/* DESKTOP LINKS */}
+          {/* DESKTOP */}
           {user && (
             <div className="hidden sm:flex items-center gap-6">
               <Link
                 to="/home"
                 className={`text-sm ${
-                  isActive("/home") ? "text-neon" : "text-[var(--text)]"
+                  isActive("/home")
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text)]"
                 }`}
               >
                 Events
@@ -50,7 +57,7 @@ const Navbar = () => {
                   to="/admin/dashboard"
                   className={`text-sm ${
                     isActive("/admin")
-                      ? "text-neon"
+                      ? "text-[var(--accent)]"
                       : "text-[var(--text)]"
                   }`}
                 >
@@ -60,7 +67,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => setShowConfirm(true)}
-                className="rounded-lg bg-gradient-to-r from-pink-500 to-red-500
+                className="rounded-lg bg-red-500
                            px-3 py-1.5 text-sm text-white"
               >
                 Logout
@@ -68,27 +75,31 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE BUTTON */}
           {user && (
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
-              className="sm:hidden text-2xl text-[var(--text)]"
-              aria-label="Open menu"
+              className="sm:hidden text-2xl
+                         text-[var(--text)]"
             >
               ☰
             </button>
           )}
         </div>
 
-        {/* MOBILE MENU PANEL */}
+        {/* MOBILE MENU */}
         {mobileMenu && (
-          <div className="sm:hidden border-t border-[var(--border)]
-                          bg-[var(--card)] px-4 py-3 space-y-3">
+          <div className="sm:hidden border-t
+                          border-[var(--border)]
+                          bg-[var(--card)]
+                          px-4 py-3 space-y-3">
             <Link
               to="/home"
               onClick={() => setMobileMenu(false)}
               className={`block text-sm ${
-                isActive("/home") ? "text-neon" : "text-[var(--text)]"
+                isActive("/home")
+                  ? "text-[var(--accent)]"
+                  : "text-[var(--text)]"
               }`}
             >
               Events
@@ -100,7 +111,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenu(false)}
                 className={`block text-sm font-medium ${
                   isActive("/admin")
-                    ? "text-neon"
+                    ? "text-[var(--accent)]"
                     : "text-[var(--text)]"
                 }`}
               >
@@ -110,8 +121,9 @@ const Navbar = () => {
 
             <button
               onClick={() => setShowConfirm(true)}
-              className="w-full rounded-lg bg-red-500/10 py-2
-                         text-sm font-semibold text-red-500"
+              className="w-full rounded-lg
+                         bg-red-500/10 py-2
+                         text-sm font-semibold text-red-600"
             >
               Logout
             </button>
@@ -119,7 +131,6 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* LOGOUT CONFIRM */}
       <ConfirmModal
         isOpen={showConfirm}
         title="Confirm Logout"
