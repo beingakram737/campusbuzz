@@ -23,57 +23,47 @@ const Navbar = () => {
         className="sticky top-0 z-50 backdrop-blur-glass bg-glass
                    border-b border-white/10 shadow-soft"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
-          {/* 🔒 LOGO (READ-ONLY FOR ALL) */}
+        <div
+          className="mx-auto flex max-w-7xl flex-wrap items-center
+                     justify-between px-4 py-3 sm:px-6"
+        >
+          {/* LOGO */}
           <span
-            className="font-heading text-2xl font-bold tracking-wider text-neon
-                       cursor-default select-none"
+            className="font-heading text-xl sm:text-2xl font-bold tracking-wider
+                       text-neon cursor-default select-none whitespace-nowrap"
           >
             CampusBuzz
           </span>
 
-          {/* RIGHT SIDE LINKS */}
+          {/* RIGHT LINKS */}
           {user && (
-            <div className="flex items-center gap-6">
-
-              {/* EVENTS (PUBLIC EVENTS) */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-6">
               <Link
                 to="/home"
                 className="text-sm font-medium text-gray-300
-                           transition hover:text-neon
-                           focus-visible:outline-none
-                           focus-visible:ring-2 focus-visible:ring-neon
-                           focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+                           transition hover:text-neon"
               >
                 Events
               </Link>
 
-              {/* ADMIN DASHBOARD */}
               {isAdmin && (
                 <Link
                   to="/admin/dashboard"
                   className="text-sm font-medium text-gray-300
-                             transition hover:text-neon
-                             focus-visible:outline-none
-                             focus-visible:ring-2 focus-visible:ring-neon
-                             focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+                             transition hover:text-neon"
                 >
                   Dashboard
                 </Link>
               )}
 
-              {/* LOGOUT */}
               <button
                 onClick={() => setShowConfirm(true)}
-                className="rounded-xl bg-gradient-to-r
+                className="rounded-lg bg-gradient-to-r
                            from-pink-500 to-red-500
-                           px-4 py-2 text-sm font-semibold text-white
+                           px-3 py-1.5 text-xs sm:text-sm
+                           font-semibold text-white
                            transition hover:scale-105
-                           hover:shadow-[0_0_20px_rgba(255,0,80,0.6)]
-                           focus-visible:outline-none
-                           focus-visible:ring-2 focus-visible:ring-red-400
-                           focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+                           hover:shadow-[0_0_20px_rgba(255,0,80,0.6)]"
               >
                 Logout
               </button>
@@ -82,7 +72,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* LOGOUT CONFIRM MODAL */}
+      {/* CONFIRM LOGOUT */}
       <ConfirmModal
         isOpen={showConfirm}
         title="Confirm Logout"
@@ -91,7 +81,6 @@ const Navbar = () => {
         onCancel={() => setShowConfirm(false)}
         onConfirm={handleLogout}
       />
-   
     </>
   );
 };
